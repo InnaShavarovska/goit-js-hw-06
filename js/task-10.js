@@ -38,6 +38,7 @@ const inputValue = event => {
 
 refs.input.addEventListener('input', inputValue);
 refs.btnCreat.addEventListener('click', function () {
+  refs.divBoxes.innerHTML = '';
   return createBoxes(Number(refs.input.value));
 });
 

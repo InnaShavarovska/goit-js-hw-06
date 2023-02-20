@@ -4,7 +4,11 @@ const refs = {
 }
 
 const onInputChange = (event) => {
-	refs.name.textContent = event.currentTarget.value;
+	if (event.currentTarget.value !== '') {
+		refs.name.textContent = event.currentTarget.value;
+	} else {
+		refs.name.textContent = 'Anonymous';
+	}
 }
 
 refs.input.addEventListener('input', onInputChange);

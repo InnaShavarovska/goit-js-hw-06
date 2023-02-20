@@ -6,17 +6,26 @@ const total = Number(inputEl.getAttribute("data-length"));
 
 
 const onInputVal = event => {
-	if (event.currentTarget.value.length > total) {
-		event.currentTarget.classList.remove('valid');
-		event.currentTarget.classList.add('invalid');
+
+	const inputLength = event.currentTarget.value.length;
+	const classChange = 	event.currentTarget.classList;
+
+
+	if (inputLength  > total) {
+		classChange.remove('valid');
+		classChange.add('invalid');
 	} 
-	if (event.currentTarget.value.length <= total) {
-	event.currentTarget.classList.remove('invalid');
-	event.currentTarget.classList.add('valid');
+	if (inputLength  === total) {
+		classChange.remove('invalid');
+		classChange.add('valid');
 	} 
-	if (event.currentTarget.value.length === 0 ) {
-	event.currentTarget.classList.remove('valid');
-	event.currentTarget.classList.remove('invalid');
+	if (inputLength === 0) {
+		classChange.remove('valid');
+		classChange.remove('invalid');
+	}
+	if (inputLength < total) {
+		classChange.remove('valid');
+		classChange.add('invalid');
 	}
 };
 
