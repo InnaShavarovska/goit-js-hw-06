@@ -10,23 +10,17 @@ const onInputVal = event => {
 	const inputLength = event.currentTarget.value.length;
 	const classChange = 	event.currentTarget.classList;
 
-
-	if (inputLength  > total) {
-		classChange.remove('valid');
-		classChange.add('invalid');
-	} 
 	if (inputLength  === total) {
 		classChange.remove('invalid');
 		classChange.add('valid');
-	} 
-	if (inputLength === 0) {
-		classChange.remove('valid');
-		classChange.remove('invalid');
-	}
-	if (inputLength < total) {
+	}  else {
 		classChange.remove('valid');
 		classChange.add('invalid');
-	}
+	};
+	
+	if (inputLength === 0) {
+		classChange.remove('invalid');
+};
 };
 
 inputEl.addEventListener("blur", onInputVal);
